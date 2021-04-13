@@ -1,3 +1,23 @@
 .App {
 	text-align: center;
 }
+
+.signIn {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.signIn-h1 {
+	border: 0.1rem solid blueviolet;
+	padding: 1rem 2rem;
+	border-radius: 2rem;
+	font-size: x-large;
+}
+
+.signIn-h1:hover {
+	background-color: blueviolet;
+	color: white;
+	cursor: pointer;
+}

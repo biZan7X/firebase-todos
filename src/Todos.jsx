@@ -6,9 +6,9 @@ import "./styles/Todos.css";
 import TextField from "@material-ui/core/TextField";
 //*firebase
 import firebase from "firebase";
-import { db } from "./firebase-config";
+import { auth, db } from "./firebase-config";
 
-const Todos = () => {
+const Todos = ({ user }) => {
 	const [todoInput, setTodoInput] = useState("");
 	const [todos, setTodos] = useState([]);
 
@@ -55,21 +55,31 @@ const Todos = () => {
 		setTodoInput("");
 	};
 
+	const signOut = () => auth.signOut();
+
 	return (
 		<div className="Todos">
-			<h1>Biswanath Tewari's toDos 😁</h1>;
+			<h1>
+				<i>{user.displayName}'s</i> toDos 😁
+			</h1>
+			;
 			<form>
 				<TextField
 					id="standard-basic"
 					value={todoInput}
 					onChange={(e) => setTodoInput(e.target.value)}
-					label="What's on ur mind ❓ 🔥"
+					label="What's on ur mind ❓"
 				/>
-				<button onClick={onClickHandler} type="submit">
+				<button className="add-btn" onClick={onClickHandler} type="submit">
 					+
 				</button>
 			</form>
 			{renderTodos}
+			<div className="signOutdiv">
+				<button onClick={signOut} className="signOut">
+					Sign Out
+				</button>
+			</div>
 		</div>
 	);
 };

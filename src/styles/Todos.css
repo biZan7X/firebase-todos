@@ -1,12 +1,54 @@
+.signOutdiv {
+	display: flex;
+	justify-content: center;
+}
+
+i {
+	color: blueviolet;
+}
 form {
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
 }
 
-button {
+#standard-basic {
+	width: 50vw;
+}
+
+.add-btn {
 	margin-left: 1rem;
 	border-radius: 50%;
+	padding: 0rem 0.5rem;
 	background-color: rgb(120, 153, 245);
 	height: 5vh;
+	cursor: pointer;
+}
+
+.TodoItem {
+	width: 80vw;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	border-radius: 5px;
+}
+
+.TodoItem:hover {
+	background-color: azure;
+	cursor: pointer;
+}
+
+.signOut {
+	position: absolute;
+	bottom: 0;
+	margin-bottom: 1rem;
+	padding: 0.5rem 1rem;
+	border-radius: 1rem;
+	color: blueviolet;
+	cursor: pointer;
+}
+
+.signOut:hover {
+	background-color: blueviolet;
+	color: white;
 }
