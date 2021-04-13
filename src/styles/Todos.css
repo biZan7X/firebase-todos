@@ -1,0 +1,12 @@
+form {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+}
+
+button {
+	margin-left: 1rem;
+	border-radius: 50%;
+	background-color: rgb(120, 153, 245);
+	height: 5vh;
+}
