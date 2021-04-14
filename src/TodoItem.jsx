@@ -1,18 +1,18 @@
 import { Button, ListItem, ListItemText } from "@material-ui/core";
 import React from "react";
-import { db } from "./firebase-config";
+import { db, auth } from "./firebase-config";
 
 const TodoItem = ({ title, progress, id }) => {
 	//^ updating the db
 	const toggleProgress = () => {
-		db.collection("todos").doc(id).update({
+		db.collection(`users/${auth.currentUser.uid}/todos`).doc(id).update({
 			progress: !progress,
 		});
 	};
 
 	//^ deleting in the db
 	const deleteTodo = () => {
-		db.collection("todos").doc(id).delete();
+		db.collection(`users/${auth.currentUser.uid}/todos`).doc(id).delete();
 	};
 
 	return (

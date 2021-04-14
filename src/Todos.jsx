@@ -18,16 +18,18 @@ const Todos = ({ user }) => {
 	}, []);
 
 	const getTodos = () => {
-		db.collection("todos").onSnapshot((querySnapshot) => {
-			const temp = querySnapshot.docs.map((doc) => {
-				return {
-					id: doc.id,
-					title: doc.data().title,
-					progress: doc.data().progress,
-				};
-			});
-			setTodos(temp);
-		});
+		db.collection(`users/${auth.currentUser.uid}/todos`).onSnapshot(
+			(querySnapshot) => {
+				const temp = querySnapshot.docs.map((doc) => {
+					return {
+						id: doc.id,
+						title: doc.data().title,
+						progress: doc.data().progress,
+					};
+				});
+				setTodos(temp);
+			}
+		);
 	};
 
 	const renderTodos = todos.map((todo) => {
@@ -45,7 +47,7 @@ const Todos = ({ user }) => {
 		e.preventDefault();
 
 		//^ CREATE : storing the input
-		db.collection("todos").add({
+		db.collection(`users/${auth.currentUser.uid}/todos`).add({
 			title: todoInput,
 			timestamp: firebase.firestore.FieldValue.serverTimestamp(),
 			progress: true,
